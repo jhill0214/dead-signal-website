@@ -93,10 +93,36 @@ nav {
     position: relative;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, var(--primary-dark) 100%);
     overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-banner {
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+.server-banner {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    border: 2px solid var(--accent-red);
+    box-shadow: 0 0 30px var(--glow-red), 0 0 60px rgba(139, 0, 0, 0.3);
+    animation: banner-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes banner-glow {
+    0% {
+        box-shadow: 0 0 30px var(--glow-red), 0 0 60px rgba(139, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 40px var(--glow-red), 0 0 80px rgba(139, 0, 0, 0.5);
+    }
 }
 
 .hero::before {

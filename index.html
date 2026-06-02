@@ -27,6 +27,9 @@
     </header>
 
     <section id="home" class="hero">
+        <div class="hero-banner">
+            <img src="banner.png" alt="Dead Signal Server Banner" class="server-banner">
+        </div>
         <div class="hero-content">
             <h1 class="glitch">DEAD SIGNAL</h1>
             <p class="hero-subtitle">Survive the Signal. Embrace the Darkness.</p>
@@ -122,7 +125,7 @@
                         <li>🤝 Team finding</li>
                         <li>🎁 Exclusive events</li>
                     </ul>
-                    <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" class="btn discord-btn">
+                    <a href="https://discord.gg/YJxtY9PEs5" target="_blank" class="btn discord-btn">
                         Join Discord Server
                     </a>
                 </div>
@@ -139,7 +142,7 @@
             <div class="connect-info">
                 <div class="server-ip">
                     <p class="ip-label">SERVER IP</p>
-                    <p class="ip-address">connect deadsignal.rust.server:28015</p>
+                    <p class="ip-address">connect 47.25.226.71:28015</p>
                     <button class="copy-btn" onclick="copyIP()">Copy IP</button>
                 </div>
                 <div class="server-details">
@@ -173,7 +176,7 @@
 
     <script>
         function copyIP() {
-            const ip = "connect deadsignal.rust.server:28015";
+            const ip = "connect 47.25.226.71:28015";
             navigator.clipboard.writeText(ip).then(() => {
                 alert("Server IP copied to clipboard!");
             });
