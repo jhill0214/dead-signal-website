@@ -893,6 +893,28 @@ nav {
     font-family: 'Courier New', monospace;
 }
 
+.battlemetrics-banner {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.battlemetrics-banner a {
+    display: inline-block;
+    border: 1px solid var(--accent-orange);
+    box-shadow: 0 0 15px var(--glow-orange);
+    transition: all 0.3s;
+}
+
+.battlemetrics-banner a:hover {
+    box-shadow: 0 0 25px var(--glow-orange);
+}
+
+.battlemetrics-banner img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 /* Footer */
 footer {
     background: var(--primary-dark);
