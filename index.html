@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dead Signal - Rust Server</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="fog-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="crt-flicker"></div>
     
     <header>
         <nav>
@@ -19,8 +21,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#rules">Rules</a></li>
-                <li><a href="#rankings">Rankings</a></li>
+                <li><a href="rules.html">Rules</a></li>
                 <li><a href="#discord">Discord</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
@@ -28,220 +29,134 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-banner">
-            <img src="banner.png" alt="Dead Signal Server Banner" class="server-banner">
-        </div>
-        <div class="hero-content">
-            <h1 class="glitch">DEAD SIGNAL</h1>
-            <p class="hero-subtitle">Survive the Signal. Embrace the Darkness.</p>
-            <div class="cta-buttons">
-                <a href="#connect" class="btn primary">Join Server</a>
-                <a href="#discord" class="btn secondary">Join Discord</a>
-            </div>
+        <div class="transmission-overlay">
+            <div class="transmission-line">[SYSTEM]: SIGNAL DETECTED</div>
+            <div class="transmission-line">[STATUS]: TRANSMISSION ACTIVE</div>
+            <div class="transmission-line error">[WARNING]: INTERFERENCE DETECTED</div>
         </div>
         <div class="static-noise"></div>
     </section>
 
+    <div class="signal-status">
+        <div class="signal-label">SIGNAL STRENGTH</div>
+        <div class="signal-bars">
+            <div class="signal-bar"></div>
+            <div class="signal-bar"></div>
+            <div class="signal-bar"></div>
+            <div class="signal-bar"></div>
+        </div>
+    </div>
+
+    <section id="transmission" class="section">
+        <div class="container">
+            <div class="terminal-box">
+                <div class="box-header">🛑 ─── INCOMING TRANSMISSION ─── 🛑</div>
+                <div class="box-content">
+                    <p><span class="system-tag">[FREQUENCY]:</span> UNKNOWN</p>
+                    <p><span class="system-tag">[ORIGIN]:</span> DEEP SPACE</p>
+                    <p><span class="system-tag">[STATUS]:</span> DECRYPTING...</p>
+                    <br>
+                    <p>Welcome to Dead Signal!</p>
+                    <p>A long-term persistent Rust survival world focused on exploration, building, cooperation, and atmosphere.</p>
+                    <br>
+                    <p><span class="warning-tag">⚠️ PROTOCOL:</span></p>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li>• No Raids</li>
+                        <li>• No Decay</li>
+                        <li>• Vanilla Progression</li>
+                        <li>• No Pay-to-Win</li>
+                        <li>• No VIP Kits</li>
+                        <li>• Monthly Wipes</li>
+                        <li>• Signal Collapse pre-wipe PvP event</li>
+                    </ul>
+                    <br>
+                    <p>Dead Signal is built for players who enjoy the survival and progression of Rust without the constant chaos of offline raiding and toxic PvP.</p>
+                    <p>Build lasting bases, create towns, run monuments with other survivors, and experience a dangerous world designed around community-driven gameplay.</p>
+                    <br>
+                    <p><span class="system-tag">[DIRECTIVE]:</span></p>
+                    <p>The world should feel dangerous.</p>
+                    <p>Players should not.</p>
+                    <br>
+                    <p><span class="system-tag">[MESSAGE]:</span> Survive the silence.</p>
+                    <br>
+                    <p><span class="system-tag">[END TRANSMISSION]</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">The Signal Awaits</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="card-icon">📡</div>
-                    <h3>Mysterious Origins</h3>
-                    <p>Something is broadcasting from the depths. Those who listen never return the same.</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-icon">👁️</div>
-                    <h3>Watched Always</h3>
-                    <p>The signal sees all. Trust no one. The shadows have eyes.</p>
-                </div>
-                <div class="about-card">
-                    <div class="card-icon">💀</div>
-                    <h3>Survive or Perish</h3>
-                    <p>Build, raid, survive. But remember—the dead don't stay dead.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="rules" class="section dark-section">
-        <div class="container">
-            <h2 class="section-title">Server Rules</h2>
-            <p class="section-subtitle">Survive together. Respect the signal.</p>
+            <h2 class="section-title">About Dead Signal</h2>
             
-            <div class="rules-container">
-                <div class="rule-section">
-                    <h3 class="rule-title">⚠ NO RAIDING, STEALING, OR GRIEFING</h3>
-                    <div class="rule-content">
-                        <p><strong>1.0</strong> No raiding player bases under any circumstance.</p>
-                        <p><strong>1.1</strong> Do not steal from other players. This includes:</p>
-                        <ul class="rule-list">
-                            <li>unlocked boxes</li>
-                            <li>furnaces</li>
-                            <li>lockers</li>
-                            <li>sleeping players</li>
-                            <li>vehicles</li>
-                            <li>horses</li>
-                            <li>dropped loot</li>
-                        </ul>
-                        <p class="rule-emphasis">If it is not yours, leave it alone.</p>
-                        <p><strong>1.2</strong> No griefing or harassment. Examples include:</p>
-                        <ul class="rule-list">
-                            <li>trapping players inside bases</li>
-                            <li>placing turrets/traps outside bases</li>
-                            <li>blocking doors or entrances</li>
-                            <li>building around another player's base</li>
-                            <li>intentionally baiting NPCs into player bases</li>
-                        </ul>
-                        <p><strong>1.3</strong> An open door is NOT permission to loot.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section">
-                    <h3 class="rule-title">🎯 PvE EVENT & LOOT ETIQUETTE</h3>
-                    <div class="rule-content">
-                        <p><strong>2.0</strong> Major events are intended to be cooperative. Do not act greedily during shared encounters.</p>
-                        <p><strong>2.1</strong> Helicopter, Bradley, Oil Rig, Cargo, and monument loot should be shared fairly between participating players.</p>
-                        <p class="rule-emphasis">Use combat logs and common sense to determine contribution.</p>
-                        <p><strong>2.2</strong> Tagging Helicopter or Bradley does NOT give full ownership of all loot.</p>
-                        <p><strong>2.3</strong> Players may run monuments at the same time. You may not claim ownership over an entire monument or puzzle area.</p>
-                        <p><strong>2.4</strong> If you use your own keycards or resources to access secured loot, that loot is yours.</p>
-                        <p class="rule-emphasis">Public loot such as CH-47 hackable crates are first come, first serve unless players agree otherwise.</p>
-                        <p><strong>2.5</strong> Intentionally sabotaging another player's monument run or event participation is considered griefing.</p>
-                        <p class="rule-emphasis">If you are unsure whether someone is already running an event, ask in chat first.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section">
-                    <h3 class="rule-title">💬 CHAT & COMMUNITY CONDUCT</h3>
-                    <div class="rule-content">
-                        <p><strong>3.0</strong> Keep global chat respectful and relaxed.</p>
-                        <p class="rule-emphasis">Friendly banter is fine. Toxic behavior is not.</p>
-                        <p><strong>3.1</strong> Zero tolerance for:</p>
-                        <ul class="rule-list">
-                            <li>racism</li>
-                            <li>homophobia</li>
-                            <li>sexism</li>
-                            <li>hate speech</li>
-                            <li>targeted harassment</li>
-                        </ul>
-                        <p class="rule-emphasis">Violations may result in immediate removal.</p>
-                        <p><strong>3.2</strong> Avoid political or religious arguments in global chat.</p>
-                        <p><strong>3.3</strong> Do not spam chat, mic spam, or intentionally disrupt the community atmosphere.</p>
-                        <p><strong>3.4</strong> Please use English in global chat so moderators can properly assist players when needed.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section">
-                    <h3 class="rule-title">🏗️ BUILDING RULES</h3>
-                    <div class="rule-content">
-                        <p><strong>4.0</strong> Build creatively, but be mindful of server performance and map access.</p>
-                        <p><strong>4.1</strong> Do not wall off or block:</p>
-                        <ul class="rule-list">
-                            <li>monuments</li>
-                            <li>roads</li>
-                            <li>rivers</li>
-                            <li>railways</li>
-                            <li>tunnels</li>
-                            <li>recyclers</li>
-                            <li>fishing villages</li>
-                            <li>safe zones</li>
-                        </ul>
-                        <p><strong>4.2</strong> Do not intentionally build in ways that prevent other players from progressing through the map.</p>
-                        <p><strong>4.3</strong> Massive unused compounds, excessive twig structures, and abandoned bases may be removed by admins to maintain server health.</p>
-                        <p><strong>4.4</strong> Trap bases designed to kill or troll players are not allowed.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section">
-                    <h3 class="rule-title">🛡️ SAFE ZONES & PLAYER INTERACTION</h3>
-                    <div class="rule-content">
-                        <p><strong>5.0</strong> Do not bait NPCs, scientists, or hostile entities into safe zones or player bases intentionally.</p>
-                        <p><strong>5.1</strong> No excessive harassment, stalking, or repeatedly following players to disrupt gameplay.</p>
-                        <p><strong>5.2</strong> Player-created shops, towns, and community areas are encouraged.</p>
-                        <p class="rule-emphasis">Respect community projects.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section">
-                    <h3 class="rule-title">👮 STAFF & SUPPORT</h3>
-                    <div class="rule-content">
-                        <p><strong>6.0</strong> Staff are here to maintain a fair and enjoyable environment.</p>
-                        <p><strong>6.1</strong> Do not ask admins for:</p>
-                        <ul class="rule-list">
-                            <li>spawned items</li>
-                            <li>teleports</li>
-                            <li>free resources</li>
-                            <li>special treatment</li>
-                        </ul>
-                        <p><strong>6.2</strong> Do not impersonate staff members.</p>
-                        <p><strong>6.3</strong> If you encounter:</p>
-                        <ul class="rule-list">
-                            <li>rule breakers</li>
-                            <li>bugs</li>
-                            <li>exploits</li>
-                            <li>cheating</li>
-                        </ul>
-                        <p class="rule-emphasis">Open a support ticket in Discord. Do not attempt to handle situations yourself.</p>
-                    </div>
-                </div>
-
-                <div class="rule-section final-rule">
-                    <h3 class="rule-title">🧠 COMMON SENSE RULE</h3>
-                    <div class="rule-content">
-                        <p>Not every situation can be covered perfectly by written rules. If you are intentionally trying to ruin the experience for others, staff may intervene even if the behavior is not explicitly listed above.</p>
-                        <p class="rule-emphasis">Don't be the reason rules get longer.</p>
-                    </div>
+            <div class="terminal-box highlight-box">
+                <div class="box-header">🛑 ─── SIGNAL COLLAPSE EVENT ─── 🛑</div>
+                <div class="box-content">
+                    <p><span class="error-tag">[SYSTEM ERROR]:</span> TELEMETRY CORRUPTION DETECTED</p>
+                    <p><span class="system-tag">[STATUS]:</span> THE VOID IS APPROACHING</p>
+                    <br>
+                    <p><span class="error-tag">📡 Signal Collapse Event</span></p>
+                    <p>Every month, before the global wipe, the transmission fades. Exactly <strong>24 hours before the wipe</strong>, the <strong>Signal Collapse</strong> begins.</p>
+                    <p>When the frequency dies, all protocols dissolve. Total PVP is authorized. Raid every base. Tear down every wall. Claim every piece of scrap. The safety net is gone. The signal was lost. All hope is dead. <strong>Survive.</strong></p>
+                    <br>
+                    <p><span class="warning-tag">⏱️ Track the Decoupling</span></p>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li>• <strong>Global Wipe Clock:</strong> <a href="https://www.rustforcewipe.com/" target="_blank" style="color: var(--text-terminal);">Rust Force Wipe</a></li>
+                        <li>• <strong>In-Game Countdown:</strong> Type <code>/signal time</code> in chat</li>
+                    </ul>
+                    <br>
+                    <p><span class="system-tag">[END TRANSMISSION]</span></p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="rankings" class="section dark-section">
-        <div class="container">
-            <h2 class="section-title">Top Survivors</h2>
-            <p class="section-subtitle">Those who have endured the signal longest</p>
-            <div class="rankings-container">
-                <div class="ranking-table">
-                    <div class="ranking-header">
-                        <span>Rank</span>
-                        <span>Player</span>
-                        <span>Hours</span>
-                        <span>Kills</span>
-                    </div>
-                    <div class="ranking-row">
-                        <span class="rank gold">#1</span>
-                        <span class="player">ShadowWalker</span>
-                        <span>847</span>
-                        <span>2,341</span>
-                    </div>
-                    <div class="ranking-row">
-                        <span class="rank silver">#2</span>
-                        <span class="player">GhostRecon</span>
-                        <span>723</span>
-                        <span>1,892</span>
-                    </div>
-                    <div class="ranking-row">
-                        <span class="rank bronze">#3</span>
-                        <span class="player">VoidRunner</span>
-                        <span>689</span>
-                        <span>1,654</span>
-                    </div>
-                    <div class="ranking-row">
-                        <span class="rank">#4</span>
-                        <span class="player">Nightmare</span>
-                        <span>612</span>
-                        <span>1,423</span>
-                    </div>
-                    <div class="ranking-row">
-                        <span class="rank">#5</span>
-                        <span class="player">SilentHunter</span>
-                        <span>587</span>
-                        <span>1,287</span>
+            <div class="about-grid">
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: SERVER INFO</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[HOSTING]:</span> Home-Hosted Server</p>
+                        <p>Dead Signal is a privately hosted Rust server running from a home setup in the United States. Not a paid service—run with passion and dedication.</p>
                     </div>
                 </div>
-                <p class="rankings-note">* Rankings update hourly. Data synced from live server.</p>
+                
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: ADMINISTRATION</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[STATUS]:</span> Custom Tools Active</p>
+                        <p>Featuring custom-coded plugins and administration tools built specifically for this community. Unique features you won't find anywhere else.</p>
+                    </div>
+                </div>
+                
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: GAMEPLAY MODE</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[PROTOCOL]:</span> Cooperative PvE</p>
+                        <p>Built around a relaxed, cooperative vanilla PvE experience. Survive, build, explore monuments, and enjoy Rust without toxicity.</p>
+                    </div>
+                </div>
+                
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: RULESET</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[ENFORCEMENT]:</span> Fair & Balanced</p>
+                        <p>Strict rules against raiding, stealing, and griefing. Admin staff actively maintain a fair environment for all players.</p>
+                    </div>
+                </div>
+                
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: COMMUNITY</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[STRUCTURE]:</span> Player-Driven</p>
+                        <p>Player-created shops, towns, and community areas are encouraged. Build together, trade together, survive together.</p>
+                    </div>
+                </div>
+                
+                <div class="terminal-box">
+                    <div class="box-header">[SYSTEM]: TRANSMISSION</div>
+                    <div class="box-content">
+                        <p><span class="system-tag">[MESSAGE]:</span> The Signal Never Dies</p>
+                        <p>Something is broadcasting from the depths. Those who listen never return the same. Welcome to Dead Signal.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -251,20 +166,19 @@
             <h2 class="section-title">Join the Frequency</h2>
             <div class="discord-card">
                 <div class="discord-content">
-                    <h3>Connect with Survivors</h3>
-                    <p>Join our Discord community to coordinate raids, share stories, and uncover the mysteries of the signal together.</p>
+                    <h3>Dead Signal Community</h3>
+                    <p>Connect with fellow survivors, coordinate monument runs, share your builds, and stay updated on server events. The signal is strongest here.</p>
                     <ul class="discord-features">
-                        <li>🎮 Real-time voice chat</li>
-                        <li>📢 Server announcements</li>
-                        <li>🤝 Team finding</li>
-                        <li>🎁 Exclusive events</li>
+                        <li>🎮 Real-time voice channels for team coordination</li>
+                        <li>📢 Server announcements and wipe schedules</li>
+                        <li>🤝 Find teammates for monument runs and events</li>
+                        <li>🏗️ Share your builds and community projects</li>
+                        <li>⚡ Report issues and get admin support</li>
+                        <li>🎁 Exclusive community events and activities</li>
                     </ul>
                     <a href="https://discord.gg/YJxtY9PEs5" target="_blank" class="btn discord-btn">
                         Join Discord Server
                     </a>
-                </div>
-                <div class="discord-visual">
-                    <div class="discord-icon">💬</div>
                 </div>
             </div>
         </div>
@@ -276,8 +190,9 @@
             <div class="connect-info">
                 <div class="server-ip">
                     <p class="ip-label">SERVER IP</p>
-                    <p class="ip-address">connect 47.25.226.71:28015</p>
+                    <p class="ip-address">47.25.226.71:28015</p>
                     <button class="copy-btn" onclick="copyIP()">Copy IP</button>
+                    <p class="ip-hint">Press F1, then type: client.connect [IP]</p>
                 </div>
                 <div class="server-details">
                     <div class="detail-item">
@@ -306,7 +221,7 @@
 
     <script>
         function copyIP() {
-            const ip = "connect 47.25.226.71:28015";
+            const ip = "47.25.226.71:28015";
             navigator.clipboard.writeText(ip).then(() => {
                 alert("Server IP copied to clipboard!");
             });
