@@ -649,11 +649,37 @@ nav {
     margin-bottom: 1rem;
     text-shadow: 0 0 10px var(--glow-orange);
     letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
 }
 
 .faq-answer {
     color: var(--text-primary);
     line-height: 1.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 2rem;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 0 0 1rem 0;
 }
 
 .faq-answer p {
