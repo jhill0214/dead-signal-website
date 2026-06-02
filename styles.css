@@ -104,13 +104,18 @@ nav {
 .hero-banner {
     margin-bottom: 2rem;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .server-banner {
-    max-width: 100%;
-    max-height: 300px;
+    max-width: 90%;
+    max-height: 200px;
     width: auto;
     height: auto;
+    object-fit: contain;
     border: 2px solid var(--accent-red);
     box-shadow: 0 0 30px var(--glow-red), 0 0 60px rgba(139, 0, 0, 0.3);
     animation: banner-glow 3s ease-in-out infinite alternate;
@@ -261,6 +266,81 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+}
+
+/* Rules Section */
+.rules-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.rule-section {
+    background: var(--primary-dark);
+    border: 1px solid var(--accent-purple);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+}
+
+.rule-section:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.2);
+}
+
+.rule-section.final-rule {
+    border-color: var(--accent-red);
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, var(--primary-dark) 100%);
+}
+
+.rule-title {
+    font-family: 'Creepster', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-red);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--glow-red);
+    letter-spacing: 2px;
+}
+
+.rule-content {
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+.rule-content p {
+    margin-bottom: 1rem;
+}
+
+.rule-content strong {
+    color: var(--accent-purple);
+}
+
+.rule-list {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+.rule-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.rule-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+}
+
+.rule-emphasis {
+    color: var(--accent-red);
+    font-style: italic;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 0, 0, 0.1);
+    border-left: 3px solid var(--accent-red);
+    margin: 1rem 0;
 }
 
 .about-card {
