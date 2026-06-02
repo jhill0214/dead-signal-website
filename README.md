@@ -65,17 +65,6 @@ Update server-specific information in the Connect section:
    - `README.md`
 3. Click "Commit changes"
 
-**Option B: Using Git Command Line**
-```bash
-cd C:\Users\Jamie\CascadeProjects\dead-signal-website
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/dead-signal-website.git
-git push -u origin main
-```
-
 ### Step 3: Enable GitHub Pages
 
 1. Go to your repository on GitHub
