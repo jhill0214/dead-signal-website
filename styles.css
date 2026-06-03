@@ -239,6 +239,17 @@ nav {
     text-shadow: 0 0 5px var(--glow-orange);
 }
 
+.nav-discord-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-discord-icon {
+    width: 20px;
+    height: 20px;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
