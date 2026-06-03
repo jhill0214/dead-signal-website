@@ -630,7 +630,7 @@ nav {
     background: var(--secondary-dark);
     border-top: 1px solid var(--accent-brown);
     border-bottom: 1px solid var(--accent-brown);
-    margin-top: 8rem;
+    margin-top: 5rem;
 }
 
 .container {
