@@ -64,10 +64,16 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" id="signal-collapse">
                     <h3 class="faq-question">What is the Signal Collapse event?</h3>
                     <div class="faq-answer">
                         <p><span class="error-tag">[EVENT]:</span> 24 hours before each wipe, all safety protocols dissolve. Total PvP is authorized. Raid every base, tear down every wall, claim everything. This is your chance to go all-out before the reset. The signal dies. Survive.</p>
+                        <br>
+                        <p><span class="system-tag">[TIMING]:</span> Begins exactly 24 hours before the global wipe (first Thursday of each month at 11:00 AM PST). Ends when the wipe occurs.</p>
+                        <p><span class="system-tag">[AUTHORIZED]:</span> All raids, base destruction, tool cupboard raids, door raids, and PvP combat are permitted. No restrictions.</p>
+                        <p><span class="system-tag">[PROHIBITED]:</span> Cheating, hacking, toxicity, and harassment remain banned. Event PvP does not excuse rule violations.</p>
+                        <p><span class="system-tag">[TRACKING]:</span> Use <code>/signal time</code> in-game to see the countdown. The homepage also displays a live timer.</p>
+                        <p><span class="warning-tag">[STRATEGY]:</span> This is your opportunity to use accumulated resources for maximum destruction. Stockpile explosives, coordinate with allies, and prepare for chaos. After the wipe, everything resets.</p>
                     </div>
                 </div>
 
@@ -82,7 +88,7 @@
                 <div class="faq-item">
                     <h3 class="faq-question">Do bases decay?</h3>
                     <div class="faq-answer">
-                        <p><span class="system-tag">[DECAY]:</span> No. Bases do not decay on Dead Signal. Build freely without maintenance timers. However, massive unused compounds or abandoned bases may be removed by admins to maintain server health.</p>
+                        <p><span class="system-tag">[DECAY]:</span> No. Bases do not decay on Dead Signal. Build freely without maintenance timers. You do not need to put resources in your Tool Cupboard—upkeep is 0 for all active players and bases. Inactive players and bases are automatically removed by our custom plugin after 6 days of inactivity.</p>
                     </div>
                 </div>
 
@@ -104,8 +110,9 @@
                 <div class="faq-item">
                     <h3 class="faq-question">Can I claim monuments or puzzle areas?</h3>
                     <div class="faq-answer">
-                        <p><span class="system-tag">[MONUMENTS]:</span> No. You cannot claim ownership over monuments, puzzle areas, or entire event locations. Multiple players may run monuments simultaneously. However, if you use your own keycards or resources to access secured loot, that loot is yours.</p>
-                        <p class="rule-emphasis">Public loot (CH-47 hackable crates) is first come, first serve unless players agree otherwise.</p>
+                        <p><span class="system-tag">[MONUMENTS]:</span> While you cannot claim exclusive ownership over monuments, we have a custom plugin to help coordinate monument runs. Use <code>/claim "location name"</code> to announce you are running a monument. This creates a 30-minute timer and alerts other players if they try to claim the same location.</p>
+                        <p><span class="system-tag">[PURPOSE]:</span> This system provides context for admins to settle disputes between players. It does not actively prevent others from visiting the monument—loot remains first come, first serve.</p>
+                        <p><span class="system-tag">[LOOT]:</span> If you use your own keycards or resources to access secured loot, that loot is yours. Public loot (CH-47 hackable crates) is first come, first serve unless players agree otherwise.</p>
                     </div>
                 </div>
 
@@ -226,6 +233,24 @@
                     faqItem.classList.add('active');
                 }
             });
+        });
+
+        // Auto-expand FAQ item from hash
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetItem = document.getElementById(hash);
+                if (targetItem && targetItem.classList.contains('faq-item')) {
+                    // Close all other FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    // Expand target item
+                    targetItem.classList.add('active');
+                    // Scroll to item
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
         });
 
         // Parallax effect for fog

@@ -455,6 +455,17 @@ nav {
     letter-spacing: 0.5px;
 }
 
+.countdown-link {
+    color: var(--text-terminal);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.countdown-link:hover {
+    color: var(--accent-orange);
+    text-decoration: underline;
+}
+
 @keyframes pulse {
     0%, 100% {
         opacity: 1;

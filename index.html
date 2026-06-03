@@ -63,7 +63,7 @@
                             <span class="countdown-unit">SEC</span>
                         </div>
                     </div>
-                    <div class="countdown-sub" id="countdown-sub">Next wipe: First Thursday of month</div>
+                    <div class="countdown-sub" id="countdown-sub">Next wipe: First Thursday of month | <a href="faq.html#signal-collapse" class="countdown-link">Learn more</a></div>
                 </div>
             </div>
         </div>
@@ -126,24 +126,15 @@
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Dead Signal</h2>
-            
+
             <div class="terminal-box highlight-box">
-                <div class="box-header">🛑 ─── SIGNAL COLLAPSE EVENT ─── 🛑</div>
+                <div class="box-header">[SYSTEM]: SIGNAL COLLAPSE INFO</div>
                 <div class="box-content">
-                    <p><span class="error-tag">[SYSTEM ERROR]:</span> TELEMETRY CORRUPTION DETECTED</p>
-                    <p><span class="system-tag">[STATUS]:</span> THE VOID IS APPROACHING</p>
+                    <p><span class="system-tag">[EVENT]:</span> Monthly pre-wipe PvP activation</p>
+                    <p><span class="system-tag">[TIMING]:</span> 24 hours before global wipe</p>
+                    <p><span class="system-tag">[PROTOCOL]:</span> All restrictions lifted. Total chaos authorized.</p>
                     <br>
-                    <p><span class="error-tag">📡 Signal Collapse Event</span></p>
-                    <p>Every month, before the global wipe, the transmission fades. Exactly <strong>24 hours before the wipe</strong>, the <strong>Signal Collapse</strong> begins.</p>
-                    <p>When the frequency dies, all protocols dissolve. Total PVP is authorized. Raid every base. Tear down every wall. Claim every piece of scrap. The safety net is gone. The signal was lost. All hope is dead. <strong>Survive.</strong></p>
-                    <br>
-                    <p><span class="warning-tag">⏱️ Track the Decoupling</span></p>
-                    <ul style="list-style: none; padding-left: 1rem;">
-                        <li>• <strong>Global Wipe Clock:</strong> <a href="https://www.rustforcewipe.com/" target="_blank" style="color: var(--text-terminal);">Rust Force Wipe</a></li>
-                        <li>• <strong>In-Game Countdown:</strong> Type <code>/signal time</code> in chat</li>
-                    </ul>
-                    <br>
-                    <p><span class="system-tag">[END TRANSMISSION]</span></p>
+                    <p><a href="faq.html" style="color: var(--text-terminal);">→ Full details in FAQ</a></p>
                 </div>
             </div>
 
@@ -333,7 +324,7 @@
             if (now >= signalCollapseDate && now < wipeDate) {
                 countdownLabel.textContent = '⚠️ SIGNAL COLLAPSE ACTIVE ⚠️';
                 countdownLabel.classList.add('active');
-                countdownSub.textContent = 'PvP authorized. Total chaos until wipe.';
+                countdownSub.innerHTML = 'PvP authorized. Total chaos until wipe. | <a href="faq.html#signal-collapse" class="countdown-link">Learn more</a>';
                 countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION ACTIVE';
                 countdownStatus.classList.add('active');
                 
@@ -357,7 +348,7 @@
                 
                 countdownLabel.textContent = 'SIGNAL COLLAPSE IN';
                 countdownLabel.classList.remove('active');
-                countdownSub.textContent = 'Next wipe: First Thursday of month';
+                countdownSub.innerHTML = 'Next wipe: First Thursday of month | <a href="faq.html#signal-collapse" class="countdown-link">Learn more</a>';
                 countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION PENDING';
                 countdownStatus.classList.remove('active');
                 document.getElementById('countdown-timer').style.display = 'flex';
@@ -376,7 +367,7 @@
                 
                 countdownLabel.textContent = 'SIGNAL COLLAPSE IN';
                 countdownLabel.classList.remove('active');
-                countdownSub.textContent = 'Next wipe: First Thursday of month';
+                countdownSub.innerHTML = 'Next wipe: First Thursday of month | <a href="faq.html#signal-collapse" class="countdown-link">Learn more</a>';
                 countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION PENDING';
                 countdownStatus.classList.remove('active');
                 document.getElementById('countdown-timer').style.display = 'flex';
