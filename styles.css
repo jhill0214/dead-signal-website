@@ -346,6 +346,124 @@ nav {
     flex-wrap: wrap;
 }
 
+/* Countdown */
+.countdown-container {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 85%;
+    max-width: 450px;
+}
+
+.countdown-box {
+    background: rgba(5, 5, 5, 0.95);
+    border: 1px solid var(--accent-orange);
+    box-shadow: 0 0 15px var(--glow-orange);
+    overflow: hidden;
+}
+
+.countdown-header {
+    background: rgba(211, 84, 0, 0.2);
+    padding: 0.5rem 0.8rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--accent-orange);
+}
+
+.countdown-status {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 0.4rem 0.8rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--text-terminal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--accent-brown);
+}
+
+.countdown-status.active {
+    background: rgba(192, 57, 43, 0.2);
+    color: var(--accent-error);
+    border-bottom-color: var(--accent-error);
+}
+
+.countdown-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.countdown-label {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--accent-error);
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 8px rgba(192, 57, 43, 0.6);
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+.countdown-label.active {
+    color: var(--accent-orange);
+    text-shadow: 0 0 12px var(--glow-orange);
+    animation: none;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-terminal);
+    text-shadow: 0 0 6px var(--glow-terminal);
+    min-width: 45px;
+}
+
+.countdown-unit {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    margin-top: 0.2rem;
+}
+
+.countdown-sub {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
 .btn {
     padding: 1rem 2rem;
     border: 1px solid var(--accent-orange);
@@ -1263,6 +1381,44 @@ footer {
     
     .cta-buttons {
         flex-direction: column;
+    }
+
+    .countdown-container {
+        top: 18%;
+        width: 95%;
+        max-width: 350px;
+    }
+
+    .countdown-header {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .countdown-content {
+        padding: 0.8rem;
+    }
+
+    .countdown-label {
+        font-size: 0.85rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .countdown-timer {
+        gap: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .countdown-value {
+        font-size: 1.2rem;
+        min-width: 35px;
+    }
+
+    .countdown-unit {
+        font-size: 0.5rem;
+    }
+
+    .countdown-sub {
+        font-size: 0.6rem;
     }
     
     .ranking-header,

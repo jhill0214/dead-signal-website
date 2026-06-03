@@ -39,6 +39,34 @@
     </header>
 
     <section id="home" class="hero">
+        <div class="countdown-container" id="countdown-container">
+            <div class="countdown-box">
+                <div class="countdown-header">[SYSTEM]: SIGNAL COLLAPSE TIMER</div>
+                <div class="countdown-status" id="countdown-status">[PROTOCOL]: PvP AUTHORIZATION PENDING</div>
+                <div class="countdown-content">
+                    <div class="countdown-label" id="countdown-label">SIGNAL COLLAPSE IN</div>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days">00</span>
+                            <span class="countdown-unit">DAYS</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-unit">HRS</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-unit">MIN</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-unit">SEC</span>
+                        </div>
+                    </div>
+                    <div class="countdown-sub" id="countdown-sub">Next wipe: First Thursday of month</div>
+                </div>
+            </div>
+        </div>
         <div class="transmission-overlay">
             <div class="transmission-line">[SYSTEM]: SIGNAL DETECTED</div>
             <div class="transmission-line">[STATUS]: TRANSMISSION ACTIVE</div>
@@ -263,6 +291,106 @@
                 alert("Server IP copied to clipboard!");
             });
         }
+
+        // Signal Collapse Countdown
+        function getFirstThursday(year, month) {
+            const date = new Date(year, month, 1);
+            const dayOfWeek = date.getDay();
+            const daysUntilThursday = (4 - dayOfWeek + 7) % 7;
+            const firstThursday = new Date(year, month, 1 + daysUntilThursday);
+            // Set to 11:00 AM PST (Rust wipe time)
+            firstThursday.setHours(11, 0, 0, 0);
+            return firstThursday;
+        }
+
+        function getNextWipeDate() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth();
+            
+            let firstThursday = getFirstThursday(currentYear, currentMonth);
+            
+            // If we're past the first Thursday of this month, get next month's
+            if (now > firstThursday) {
+                const nextMonth = currentMonth + 1;
+                const nextYear = nextMonth > 11 ? currentYear + 1 : currentYear;
+                firstThursday = getFirstThursday(nextYear, nextMonth % 12);
+            }
+            
+            return firstThursday;
+        }
+
+        function updateCountdown() {
+            const wipeDate = getNextWipeDate();
+            const signalCollapseDate = new Date(wipeDate.getTime() - (24 * 60 * 60 * 1000)); // 24 hours before wipe
+            const now = new Date();
+            
+            const countdownLabel = document.getElementById('countdown-label');
+            const countdownSub = document.getElementById('countdown-sub');
+            const countdownStatus = document.getElementById('countdown-status');
+            
+            // Check if Signal Collapse is active (within 24 hours of wipe)
+            if (now >= signalCollapseDate && now < wipeDate) {
+                countdownLabel.textContent = '⚠️ SIGNAL COLLAPSE ACTIVE ⚠️';
+                countdownLabel.classList.add('active');
+                countdownSub.textContent = 'PvP authorized. Total chaos until wipe.';
+                countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION ACTIVE';
+                countdownStatus.classList.add('active');
+                
+                // Hide timer during active event
+                document.getElementById('countdown-timer').style.display = 'none';
+                return;
+            }
+            
+            // Check if wipe has passed, reset to next month
+            if (now >= wipeDate) {
+                const nextMonth = wipeDate.getMonth() + 1;
+                const nextYear = nextMonth > 11 ? wipeDate.getFullYear() + 1 : wipeDate.getFullYear();
+                const nextWipe = getFirstThursday(nextYear, nextMonth % 12);
+                const nextSignalCollapse = new Date(nextWipe.getTime() - (24 * 60 * 60 * 1000));
+                
+                const diff = nextSignalCollapse - now;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                countdownLabel.textContent = 'SIGNAL COLLAPSE IN';
+                countdownLabel.classList.remove('active');
+                countdownSub.textContent = 'Next wipe: First Thursday of month';
+                countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION PENDING';
+                countdownStatus.classList.remove('active');
+                document.getElementById('countdown-timer').style.display = 'flex';
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                // Normal countdown to Signal Collapse
+                const diff = signalCollapseDate - now;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                countdownLabel.textContent = 'SIGNAL COLLAPSE IN';
+                countdownLabel.classList.remove('active');
+                countdownSub.textContent = 'Next wipe: First Thursday of month';
+                countdownStatus.textContent = '[PROTOCOL]: PvP AUTHORIZATION PENDING';
+                countdownStatus.classList.remove('active');
+                document.getElementById('countdown-timer').style.display = 'flex';
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
 
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
